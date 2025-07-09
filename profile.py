@@ -81,7 +81,7 @@ dslink.best_effort = True
 dslink.vlan_tagging = True
 dslink.link_multiplexing = True
 
-link = request.Lan('link')
+link = request.LAN('link')
 link.link_multiplexing = True
 link.bandwidth = 100000000
 
