@@ -51,6 +51,12 @@ pc.defineParameter("osImage", "Select OS image",
                    portal.ParameterType.IMAGE,
                    imageList[1], imageList)
 
+pc.defineParameter("linkSpeed", "Link Speed",portal.ParameterType.INTEGER, 0,
+                   [(0,"Any"),(100000,"100Mb/s"),(1000000,"1Gb/s"),(10000000,"10Gb/s"),(25000000,"25Gb/s"),(100000000,"100Gb/s")],
+                   advanced=True,
+                   longDescription="A specific link speed to use for your lan. Normally the resource " +
+                   "mapper will choose for you based on node availability and the optional physical type.")
+
 # Always need this when using parameters
 params = pc.bindParameters()
 
@@ -83,7 +89,7 @@ dslink.link_multiplexing = True
 
 link = request.LAN('link')
 link.link_multiplexing = True
-link.bandwidth = 100000000
+link.bandwidth = params.linkSpeed
 
 # The NFS clients, also attached to the NFS lan.
 for i in range(1, params.clientCount+1):
@@ -94,7 +100,7 @@ for i in range(1, params.clientCount+1):
         pass
     nfsLan.addInterface(node.addInterface())
     iface = node.addInterface("interface%d" % i)
-    iface.bandwidth = 100000000
+    iface.bandwidth = params.linkSpeed
     link.addInterface(iface)
     bs = node.Blockstore("bs%d" % i, "/localdata")
     bs.size = "200GB"
