@@ -96,7 +96,7 @@ for i in range(1, params.clientCount+1):
     iface = node.addInterface("interface%d" % i)
     iface.bandwidth = 100000000
     link.addInterface(iface)
-    bs = node.Blockstore("bs", "/localdata")
+    bs = node.Blockstore("bs%d" % i, "/localdata")
     bs.size = "200GB"
     # Initialization script for the clients
     node.addService(pg.Execute(shell="sh", command="sudo /bin/bash /local/repository/nfs-client.sh"))
