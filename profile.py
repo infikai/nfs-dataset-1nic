@@ -45,7 +45,7 @@ pc.defineParameter("phystype",  "Optional physical node type",
 
 pc.defineParameter("dataset", "Your dataset URN",
                    portal.ParameterType.STRING,
-                   "urn:publicid:IDN+wisc.cloudlab.us:dynamicgpu-pg0+stdataset+Imagenet")
+                   "urn:publicid:IDN+wisc.cloudlab.us:dynamicgpu-pg0+stdataset+Imagenet1")
 
 pc.defineParameter("osImage", "Select OS image",
                    portal.ParameterType.IMAGE,
