@@ -22,6 +22,8 @@ request = pc.makeRequestRSpec()
 
 # Only Ubuntu images supported.
 imageList = [
+    ('urn:publicid:IDN+wisc.cloudlab.us+image+dynamicgpu-PG0:NFS-2NIC.node2', 'K3S'),
+    ('urn:publicid:IDN+wisc.cloudlab.us+image+dynamicgpu-PG0:kubernetes', 'UBUNTU 22.04 Kube'),
     ('urn:publicid:IDN+wisc.cloudlab.us+image+dynamicgpu-PG0:sys1', 'SYS'),
     ('urn:publicid:IDN+wisc.cloudlab.us+image+dynamicgpu-PG0:c240g5horovod1', 'c240g5horovod1'),
     ('urn:publicid:IDN+wisc.cloudlab.us+image+dynamicgpu-PG0:c240g5Docker', 'UBUNTU 22.04 cuda12.6'),
@@ -45,7 +47,7 @@ pc.defineParameter("phystype",  "Optional physical node type",
 
 pc.defineParameter("dataset", "Your dataset URN",
                    portal.ParameterType.STRING,
-                   "urn:publicid:IDN+wisc.cloudlab.us:dynamicgpu-pg0+stdataset+Imagenet1")
+                   "urn:publicid:IDN+wisc.cloudlab.us:dynamicgpu-pg0+ltdataset+Dataset")
 
 pc.defineParameter("osImage", "Select OS image",
                    portal.ParameterType.IMAGE,
