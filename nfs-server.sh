@@ -77,7 +77,7 @@ if ! grep -q "^$NFSDIR" /etc/exports; then
     NFSNET=`echo $NFSIP | awk -F. '{printf "%s.%s.%s.0", $1, $2, $3}'`
 
     if [ "$OS" = "Linux" ]; then
-	echo "$NFSDIR $NFSNET/24(rw,sync,no_root_squash,no_subtree_check,fsid=0)" >> /etc/exports
+	echo "$NFSDIR $NFSNET/24(rw,async,no_root_squash,no_subtree_check,fsid=0)" >> /etc/exports
     else
 	echo "$NFSDIR -network $NFSNET -mask 255.255.255.0 -maproot=root -alldirs" >> /etc/exports
     fi
